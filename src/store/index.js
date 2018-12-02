@@ -5,7 +5,15 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  return state;
+  switch(action.type) {
+    case 'INPUT_CHANGE':
+      return Object.assign({}, state, {todos: action.item});
+    break;
+    case 'ON_SUBMIT':
+      return Object.assign({}, state, {todos: action.item});
+    default:
+      return state;
+  }
 }
 
 const store = createStore(reducer);
