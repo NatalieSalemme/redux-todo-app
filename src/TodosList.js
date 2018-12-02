@@ -2,15 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const TodosList = (props) => {
+  const mappedTodos = props.todos.map(todo => {
+    return <li key={todo.toString()}>{todo}</li>
+  });
   return (
     <div>
       <h1>TodosList</h1>
-      <form>
+      <form onSubmit={props.onSubmit}>
         <input
+          value={props.item}
           onChange={props.onInputChange}/>
       </form>
       <ul>
-        {props.todos}
+        {mappedTodos}
       </ul>
     </div>
   );
@@ -19,7 +23,8 @@ const TodosList = (props) => {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    todos: []
+    todos: state.todos,
+    item: state.item
   }
 }
 
@@ -30,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     onSubmit: (e) => {
+      console.log('submitted');
       e.preventDefault();
       const action = {type: 'ON_SUBMIT'};
       dispatch(action);
