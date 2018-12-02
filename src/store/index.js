@@ -10,11 +10,12 @@ const reducer = (state = initialState, action) => {
     case 'INPUT_CHANGE':
       return Object.assign({}, state, {item: action.item});
     break;
-    case 'ON_SUBMIT':
+    case 'ADD_ITEM':
       return Object.assign({}, state, {
         todos: state.todos.concat(state.item),
         item: ''
       });
+    case ''
     default:
       return state;
   }

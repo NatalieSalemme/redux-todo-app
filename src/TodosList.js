@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 
 const TodosList = (props) => {
   const mappedTodos = props.todos.map(todo => {
-    return <li key={todo.toString()}>{todo}</li>
+    return <li
+      key={todo.toString()}
+      onClick={props.onDelete}
+      >{todo}</li>
   });
   return (
     <div>
@@ -34,10 +37,14 @@ const mapDispatchToProps = (dispatch) => {
       const action = {type: 'INPUT_CHANGE', item: e.target.value};
       dispatch(action);
     },
+    onDelete: (e) => {
+      const action = {type: 'DELETE_ITEM'};
+      dispatch(action);
+    },
     onSubmit: (e) => {
       console.log('submitted');
       e.preventDefault();
-      const action = {type: 'ON_SUBMIT'};
+      const action = {type: 'ADD_ITEM'};
       dispatch(action);
     }
   }
