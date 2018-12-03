@@ -1,4 +1,6 @@
 import { createStore } from 'redux';
+import constants from './constants';
+console.log('what are the constants?', constants);
 
 const initialState = {
   todos: [],
@@ -9,13 +11,18 @@ const reducer = (state = initialState, action) => {
   switch(action.type) {
     case 'INPUT_CHANGE':
       return Object.assign({}, state, {item: action.item});
-    break;
+      break;
     case 'ADD_ITEM':
       return Object.assign({}, state, {
         todos: state.todos.concat(state.item),
         item: ''
       });
-    case ''
+      break;
+    case 'DELETE_ITEM':
+      const copy = state.todos.slice();
+      copy.splice(action.index, 1);
+      return Object.assign({}, state, {todos: copy});
+      break;
     default:
       return state;
   }
