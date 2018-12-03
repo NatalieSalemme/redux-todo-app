@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import constants from './constants';
-console.log('what are the constants?', constants);
+
+
 
 const initialState = {
   todos: [],

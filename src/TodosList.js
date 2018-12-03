@@ -1,34 +1,52 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {
+  Button,
+  Header,
+  Container,
+  Checkbox } from 'semantic-ui-react';
 
 const TodosList = (props) => {
   const mappedTodos = props.todos.map((todo, index) => {
     return (
-
+      <Container className="item-container">
+      <div
+        className="row"
+        key={index}>
         <li
-          className="row"
           id={todo.toString()}
-          key={index}
-          onClick={() => props.onDelete(index)}
           className="list-item"
           >{todo}</li>
+           <Button
+             color='red'
+             compact
+             className="delete-btn"
+             onClick={() => props.onDelete(index)}
+             >Delete</Button>
+            <Checkbox
+              className="check-box"/>
+      </div>
+    </Container>
     );
   });
+
+
+
   return (
-    <div>
-      <h1>TodosList</h1>
+    <div className="center">
+       <Header as='h1'>Redux Todos</Header>
       <form onSubmit={props.onSubmit}>
         <input
           value={props.item}
           onChange={props.onInputChange}/>
       </form>
-      <ul>
+      <p>I have {props.todos.length} {props.todos.length === 1 ? 'thing' : 'things'} left to do!</p>
+      <ol>
         {mappedTodos}
-      </ul>
+      </ol>
     </div>
   );
 }
-
 const mapStateToProps = (state) => {
   console.log(state);
   return {
@@ -49,7 +67,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     onSubmit: (e) => {
-      console.log('submitted');
       e.preventDefault();
       const action = {type: 'ADD_ITEM'};
       dispatch(action);

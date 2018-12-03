@@ -1,7 +1,20 @@
 .row {
   display: flex;
   flex-direction: row;
+  margin: .5em 0;
 }
 .list-item {
   margin-right: 1em;
+  font-size: 25px;
+}
+.center {
+  margin: auto;
+  text-align: center;
+}
+.item-container {
+  border: 1px solid black;
+}
+.check-box {
+  height: 30px;
+  width: 30px;
 }
