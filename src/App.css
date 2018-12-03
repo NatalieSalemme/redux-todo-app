@@ -9,7 +9,7 @@
   margin: .5em 0;
 }
 .list-item {
-  margin-right: 1em;
+  margin: 0 1em;
   font-size: 25px;
 }
 .center {
@@ -21,7 +21,6 @@
 }
 .item-container {
   border: 1px solid black;
-
 }
 .check-box {
   transform: scale(1.5);

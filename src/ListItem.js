@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {
-  Button,
-  Checkbox } from 'semantic-ui-react';
+  Button} from 'semantic-ui-react';
 
 const ListItem = (props) => {
   return (
@@ -12,8 +11,7 @@ const ListItem = (props) => {
       <li
         id={props.id}
         className="list-item">
-        <Checkbox
-          className="check-box"/>
+      
           {props.todo}
       </li>
          <Button
