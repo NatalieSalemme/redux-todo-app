@@ -6,7 +6,7 @@ import TodosList from './TodosList';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div classNampe="app-container">
         <TodosList store={store} />
       </div>
     );

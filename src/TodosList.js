@@ -10,21 +10,25 @@ const TodosList = (props) => {
   const mappedTodos = props.todos.map((todo, index) => {
     return (
       <Container className="item-container">
+
       <div
         className="row"
         key={index}>
+
         <li
           id={todo.toString()}
           className="list-item"
-          >{todo}</li>
+          >
+            <Checkbox
+              className="check-box"/>
+            {todo}</li>
            <Button
              color='red'
              compact
              className="delete-btn"
              onClick={() => props.onDelete(index)}
              >Delete</Button>
-            <Checkbox
-              className="check-box"/>
+
       </div>
     </Container>
     );
@@ -33,14 +37,14 @@ const TodosList = (props) => {
 
 
   return (
-    <div className="center">
-       <Header as='h1'>Redux Todos</Header>
+    <div className="center todos-list-container">
+       <Header as='h1' className="header">Redux Todos</Header>
       <form onSubmit={props.onSubmit}>
         <input
           value={props.item}
           onChange={props.onInputChange}/>
       </form>
-      <p>I have {props.todos.length} {props.todos.length === 1 ? 'thing' : 'things'} left to do!</p>
+      <h4>I have {props.todos.length} {props.todos.length === 1 ? 'thing' : 'things'} left to do!</h4>
       <ol>
         {mappedTodos}
       </ol>

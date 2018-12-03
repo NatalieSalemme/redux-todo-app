@@ -1,6 +1,11 @@
-.row {
+* {
+  padding: 0;
+  margin: 0;
+}
+  .row {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: .5em 0;
 }
 .list-item {
@@ -11,10 +16,14 @@
   margin: auto;
   text-align: center;
 }
+.todos-list-container {
+  margin-top: 2.5em;
+}
 .item-container {
   border: 1px solid black;
+
 }
 .check-box {
-  height: 30px;
-  width: 30px;
+  transform: scale(1.5);
+  margin: 0 1em;
 }
