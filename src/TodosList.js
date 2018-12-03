@@ -1,40 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ListItem  from './ListItem';
 import {
-  Button,
   Header,
   Container,
-  Checkbox } from 'semantic-ui-react';
+} from 'semantic-ui-react';
 
-const todosListList = (props) => {
+const todosList = (props) => {
   const mappedtodosList = props.todosList.map((todo, index) => {
     return (
-      <Container className="item-container">
-
-      <div
-        className="row"
+      <Container className="item-container"
         key={index}>
 
-        <li
+        <ListItem
           id={todo.toString()}
-          className="list-item"
-          >
-            <Checkbox
-              className="check-box"/>
-            {todo}</li>
-           <Button
-             color='red'
-             compact
-             className="delete-btn"
-             onClick={() => props.onDelete(index)}
-             >Delete</Button>
-
-      </div>
+          index={index}
+          todo={todo}
+        />
     </Container>
     );
   });
-
-
 
   return (
     <div className="center todos-list-container">
@@ -65,11 +50,6 @@ const mapDispatchToProps = (dispatch) => {
       const action = {type: 'INPUT_CHANGE', item: e.target.value};
       dispatch(action);
     },
-    onDelete: (index) => {
-      const action = {type: 'DELETE_ITEM',
-      index: index};
-      dispatch(action);
-    },
     onSubmit: (e) => {
       e.preventDefault();
       const action = {type: 'ADD_ITEM'};
@@ -77,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(todosListList);
+export default connect(mapStateToProps, mapDispatchToProps)(todosList);

@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import store from './store/';
 import TodosList from './TodosList';
+import { Provider } from 'react-redux';
 
 class App extends Component {
   render() {
     return (
-      <div classNampe="app-container">
-        <TodosList store={store} />
+      <div className="app-container">
+        <Provider store={store}>
+          <TodosList />
+        </Provider>
       </div>
     );
   }
