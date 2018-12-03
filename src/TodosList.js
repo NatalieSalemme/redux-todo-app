@@ -6,8 +6,8 @@ import {
   Container,
   Checkbox } from 'semantic-ui-react';
 
-const TodosList = (props) => {
-  const mappedTodos = props.todos.map((todo, index) => {
+const todosListList = (props) => {
+  const mappedtodosList = props.todosList.map((todo, index) => {
     return (
       <Container className="item-container">
 
@@ -38,15 +38,15 @@ const TodosList = (props) => {
 
   return (
     <div className="center todos-list-container">
-       <Header as='h1' className="header">Redux Todos</Header>
+       <Header as='h1' className="header">Redux Todos List</Header>
       <form onSubmit={props.onSubmit}>
         <input
           value={props.item}
           onChange={props.onInputChange}/>
       </form>
-      <h4>I have {props.todos.length} {props.todos.length === 1 ? 'thing' : 'things'} left to do!</h4>
+      <h4>I have {props.todosList.length} {props.todosList.length === 1 ? 'thing' : 'things'} left to do!</h4>
       <ol>
-        {mappedTodos}
+        {mappedtodosList}
       </ol>
     </div>
   );
@@ -54,7 +54,7 @@ const TodosList = (props) => {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    todos: state.todos,
+    todosList: state.todosList,
     item: state.item
   }
 }
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(TodosList);
+export default connect(mapStateToProps, mapDispatchToProps)(todosListList);

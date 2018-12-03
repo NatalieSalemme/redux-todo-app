@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 
 
 const initialState = {
-  todos: [],
+  todosList: [],
   item: ''
 }
 
@@ -14,14 +14,14 @@ const reducer = (state = initialState, action) => {
       break;
     case 'ADD_ITEM':
       return Object.assign({}, state, {
-        todos: state.todos.concat(state.item),
+        todosList: state.todosList.concat(state.item),
         item: ''
       });
       break;
     case 'DELETE_ITEM':
-      const copy = state.todos.slice();
+      const copy = state.todosList.slice();
       copy.splice(action.index, 1);
-      return Object.assign({}, state, {todos: copy});
+      return Object.assign({}, state, {todosList: copy});
       break;
     default:
       return state;
