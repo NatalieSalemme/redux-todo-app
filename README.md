@@ -7,5 +7,5 @@ https://salemme-redux-todo.herokuapp.com/
 
 ## How to get started 
 - git clone https://github.com/NatalieSalemme/redux-todo-app.git
-npm install
-npm start
+- npm install
+- npm start
